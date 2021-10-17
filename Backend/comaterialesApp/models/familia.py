@@ -5,7 +5,7 @@ class Familia(models.Model):
     nombre=models.CharField(null=False, max_length = 100,choices=(
         ('A','comodidad'),
         ('B', 'natural'),
-        ('C' 'ecologico'),
+        ('C', 'ecologico'),
         ('D', 'Linea blanca')
     ))
     description=models.TextField(null=True)
