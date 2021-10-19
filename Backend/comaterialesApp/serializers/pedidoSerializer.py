@@ -8,13 +8,14 @@ class PedidoSerializer(serializers.ModelSerializer):
         model = Pedido
         fields = ['id', 'idCliente', 'idProducto']
     
+
     def to_representation(self, obj):
         pedido = Pedido.objects.get(id=obj.id)
         user  = User.objects.get(id=obj.id)
-        producto = Producto.objects.get(id=obj.id)
+        producto = Producto.objects.get(id=obj.idProducto_id)
 
         return {
-            'id': Pedido.id,
-            'idCliente': User.id,
-            'idProducto': Producto.id 
+            'id': pedido.id,
+            'idCliente': user.id,
+            'idProducto': producto.id 
         }

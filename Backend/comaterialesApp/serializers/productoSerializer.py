@@ -9,14 +9,15 @@ class ProductoSerializer(serializers.ModelSerializer):
         model = Producto
         fields = ['id', 'nombre', 'categoria', 'fabricante', 'marca', 'precio']
 
+
     def to_representation(self, obj):
         producto = Producto.objects.get(id=obj.id)
-        categoria = Categoria.objects.get(id=obj.id)
+        categoria = Categoria.objects.get(id=obj.categoria_id)
         return {
-            'id': Producto.id,
-            'nombre': Producto.nombre,
-            'categoria':Categoria.nombre,
-            'fabricante': Producto.fabricante,
-            'marca': Producto.marca,
-            'precio': Producto.precio
+            'id': producto.id,
+            'nombre': producto.nombre,
+            'categoria':categoria.nombre,
+            'fabricante': producto.fabricante,
+            'marca': producto.marca,
+            'precio': producto.precio
         }

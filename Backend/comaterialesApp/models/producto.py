@@ -7,17 +7,17 @@ class Producto(models.Model):
     nombre=models.CharField(null=False, max_length=100)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
     fabricante =models.CharField(null=False,max_length=50, choices=(
-        ('A','Comfort S.A'),
-        ('B', 'Decora S.A.S'),
-        ('C', 'MultiHogar LTDA'),
-        ('D', 'Corona S.A'),
-        ('E', 'House S.A')
+        ('Comfort','Comfort S.A'),
+        ('Decora', 'Decora S.A.S'),
+        ('Multihogar', 'MultiHogar LTDA'),
+        ('Corona', 'Corona S.A'),
+        ('House', 'House S.A')
     ))
     marca=models.CharField(null=False,max_length=50, choices=(
-        ('A', 'Arlex'),
-        ('B', 'artek'),
-        ('C', 'fatboy'),
-        ('D', 'Flos'),
-        ('E', 'vitra')
+        ('Arlex', 'Arlex'),
+        ('Artek', 'artek'),
+        ('Fatboy', 'fatboy'),
+        ('Flos', 'Flos'),
+        ('Vitra', 'vitra')
     ))
     precio=models.IntegerField(null=False)

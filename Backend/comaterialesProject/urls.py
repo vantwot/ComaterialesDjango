@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from comaterialesApp import views
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+
+from comaterialesApp.views.userCreateView import UserCreateView
+from comaterialesApp.views.productCreateView import productos
 
 urlpatterns = [
+    path('login/', TokenObtainPairView.as_view()),
+    # funcionalidad del simplejwt
+    path('refresh/', TokenRefreshView.as_view()),
+
     path('admin/', admin.site.urls),
+    path('user/', views.UserCreateView.as_view()),
+    path('user/<int:pk>/', views.UserDetailView.as_view()),
+    path('productos/', views.productos.as_view()),
 ]
