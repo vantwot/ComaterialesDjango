@@ -101,11 +101,11 @@ WSGI_APPLICATION = 'comaterialesProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'NAME': 'd3l62fl9kp9cj3',
+        'USER': 'noyqqrtispibez',
+        'PASSWORD': 'c669b05e61480b885f88e5389c5aaf492476d6090740de9eec3b48ed7e2cbf80',
+        'HOST': 'ec2-3-214-136-47.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -152,3 +152,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
