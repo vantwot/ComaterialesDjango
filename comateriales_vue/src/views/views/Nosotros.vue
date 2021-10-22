@@ -1,0 +1,5 @@
+<template>
+
+    <h1>Pagina en construcción</h1>
+
+</template>
