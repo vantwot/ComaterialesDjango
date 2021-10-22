@@ -16,6 +16,14 @@
           <h2 class="is-size-2 has-text-centered">Ultimos productos</h2>
       </div>
 
+        <div class="navbar-end">
+          <router-link to="/" class="navbar-item">Sala</router-link>
+          <router-link to="/ofertas" class="navbar-item">Cocina</router-link>
+          <router-link to="/ofertas" class="navbar-item">Habitación</router-link>
+          <router-link to="/" class="navbar-item">Accesorios</router-link>
+        </div>
+
+
        <!-- esta es el for para mostrar los productos -->
 
       <!-- <ProductBox 

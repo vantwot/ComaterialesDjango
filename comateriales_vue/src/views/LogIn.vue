@@ -30,6 +30,8 @@
                     </div>
 
                     <hr>
+
+                    Or <router-link to="/sign-up">click here</router-link> to sign up!
                 </form>
             </div>
         </div>
@@ -48,39 +50,28 @@ export default {
         }
     },
     mounted() {
-        document.title = 'Log In | Djackets'
+        document.title = 'Log In'
     },
-    methods: {
-        async submitForm() {
-            axios.defaults.headers.common["Authorization"] = ""
-            localStorage.removeItem("token")
-            const formData = {
-                username: this.username,
-                password: this.password
-            }
-            await axios
-                .post("/api/v1/token/login/", formData)
-                .then(response => {
-                    const token = response.data.auth_token
-                    this.$store.commit('setToken', token)
-                    
-                    axios.defaults.headers.common["Authorization"] = "Token " + token
-                    localStorage.setItem("token", token)
-                    const toPath = this.$route.query.to || '/cart'
-                    this.$router.push(toPath)
-                })
-                .catch(error => {
-                    if (error.response) {
-                        for (const property in error.response.data) {
-                            this.errors.push(`${property}: ${error.response.data[property]}`)
-                        }
-                    } else {
-                        this.errors.push('Something went wrong. Please try again')
-                        
-                        console.log(JSON.stringify(error))
-                    }
-                })
-        }
-    }
+  methods: {
+    processLogInUser: function () {
+      axios
+        .post("https://comateriales-be.herokuapp.com/login/", this.user, {
+          headers: {},
+        })
+        .then((result) => {
+          let dataLogIn = {
+            username: this.user.username,
+            token_access: result.data.access,
+            token_refresh: result.data.refresh,
+          };
+
+          this.$emit("completedLogIn", dataLogIn);
+        })
+        .catch((error) => {
+          if (error.response.status == "401")
+            alert("ERROR 401: Credenciales Incorrectas.");
+        });
+    },
+  },
 }
 </script>

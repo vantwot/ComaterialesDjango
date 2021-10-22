@@ -33,9 +33,8 @@
         </div>
 
         <div class="navbar-end">
-          <router-link to="/Tienda" class="navbar-item">Tienda</router-link>
-          <router-link to="/ofertas" class="navbar-item">Ofertas</router-link>
-          <router-link to="/Nosotros" class="navbar-item">Nosotros</router-link>
+          <router-link to="/" class="navbar-item">Tienda</router-link>
+          <router-link to="/" class="navbar-item">Ofertas</router-link>
           <router-link to="/contactenos" class="navbar-item">Contactenos</router-link>
 
           <div class="navbar-item">
