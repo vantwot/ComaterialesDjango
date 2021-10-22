@@ -20,14 +20,19 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 
 from comaterialesApp.views.userCreateView import UserCreateView
 from comaterialesApp.views.productCreateView import productos
+from comaterialesApp.views.categoriaView import categorias
+from comaterialesApp.views.familiasView import familias
+
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     # funcionalidad del simplejwt
     path('refresh/', TokenRefreshView.as_view()),
-
     path('admin/', admin.site.urls),
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('productos/', views.productos.as_view()),
+    path('categorias/', views.categorias.as_view()),
+    path('familia/', views.familias.as_view()),
+
 ]
