@@ -1,4 +1,4 @@
-# comateriales_vue
+# frontend
 
 ## Project setup
 ```

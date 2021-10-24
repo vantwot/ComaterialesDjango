@@ -19,3 +19,9 @@ class PedidoSerializer(serializers.ModelSerializer):
             'idCliente': user.id,
             'idProducto': producto.id 
         }
+
+    def crearpedido(self, validated_data):
+        carrito = validated_data.pop('items')
+        pedido = Pedido.objects.create(**validated_data)
+        return pedido
+    

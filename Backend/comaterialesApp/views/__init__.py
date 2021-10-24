@@ -4,4 +4,3 @@ from .productCreateView import productos
 from .categoriaView import categorias
 from .familiasView import familias
 from .pedidoView import pedidos
-
