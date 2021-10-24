@@ -10,8 +10,8 @@ class productos(views.APIView):
         productos = Producto.objects.all()
         serializer = ProductoSerializer(productos, many=True)
         return Response(serializer.data)
+        
 """
-
 class productos(generics.ListAPIView):
     serializer_class = ProductoSerializer
     def get_queryset(self):

@@ -27,10 +27,7 @@ SECRET_KEY = 'django-insecure-z!ti9krvj2w3_uv1*4!ph^-01h()2-xj)(9amra6nqh7z+z3+f
 DEBUG = True
 
 ALLOWED_HOSTS = []
-<<<<<<< HEAD
 CORS_ALLOW_ALL_ORIGINS = True
-=======
->>>>>>> 0c696b2a6a2138ef94452c38fcab017be926ae8f
 
 
 # Application definition
@@ -44,10 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'comaterialesApp',
-<<<<<<< HEAD
     'corsheaders',
-=======
->>>>>>> 0c696b2a6a2138ef94452c38fcab017be926ae8f
 ]
 
 SIMPLE_JWT = {
@@ -69,10 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
     "corsheaders.middleware.CorsMiddleware",    
-=======
->>>>>>> 0c696b2a6a2138ef94452c38fcab017be926ae8f
 ]
 
 REST_FRAMEWORK = {

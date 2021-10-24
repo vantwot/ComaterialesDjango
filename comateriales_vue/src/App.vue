@@ -2,7 +2,7 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item"><strong>Comateriales</strong></router-link>
+        <router-link to="/" class="navbar-item"><strong>COMATERIALES</strong></router-link>
 
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
           <span aria-hidden="true"></span>
@@ -17,7 +17,7 @@
             <form method="get" action="/search">
               <div class="field has-addons">
                 <div class="control">
-                  <input type="text" class="input" placeholder="Buscar?" name="query">
+                  <input type="text" class="input" placeholder="What are you looking for?" name="query">
                 </div>
 
                 <div class="control">
@@ -33,15 +33,13 @@
         </div>
 
         <div class="navbar-end">
-          <router-link to="/Tienda" class="navbar-item">Tienda</router-link>
-          <router-link to="/ofertas" class="navbar-item">Ofertas</router-link>
-          <router-link to="/Nosotros" class="navbar-item">Nosotros</router-link>
-          <router-link to="/contactenos" class="navbar-item">Contactenos</router-link>
+          <router-link to="/summer" class="navbar-item">Summer</router-link>
+          <router-link to="/winter" class="navbar-item">Winter</router-link>
 
           <div class="navbar-item">
             <div class="buttons">
               <template v-if="$store.state.isAuthenticated">
-                <router-link to="/my-account" class="button is-light">Mi cuenta</router-link>
+                <router-link to="/my-account" class="button is-light">My account</router-link>
               </template>
 
               <template v-else>
@@ -67,15 +65,14 @@
     </section>
 
     <footer class="footer">
-        <hr>
-        <p>&copy; copyright </p>
-        <p>Build with Django, Vue <span class="love">❤</span> by <a href="">Valentina-Juanjo-Oscar</a></p>
+      <p class="has-text-centered">Copyright (c) 2021</p>
     </footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -87,7 +84,9 @@ export default {
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
+
     const token = this.$store.state.token
+
     if (token) {
         axios.defaults.headers.common['Authorization'] = "Token " + token
     } else {
@@ -100,9 +99,11 @@ export default {
   computed: {
       cartTotalLength() {
           let totalLength = 0
+
           for (let i = 0; i < this.cart.items.length; i++) {
               totalLength += this.cart.items[i].quantity
           }
+
           return totalLength
       }
   }
@@ -111,6 +112,7 @@ export default {
 
 <style lang="scss">
 @import '../node_modules/bulma';
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
@@ -135,27 +137,16 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 .is-loading-bar {
   height: 0;
   overflow: hidden;
+
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+
   &.is-loading {
     height: 80px;
   }
 }
-
-
-footer{
-    background:white;
-    padding:10px 0;
-    margin-top: 10px;
-    text-align:center;
-    color:black
-}
-
-.footer .love{
-    color:red
-}
-
 </style>
