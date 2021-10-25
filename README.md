@@ -1,6 +1,6 @@
 # ComaterialesDjango
 
-Aplicación web para comprar la compra de muebles para el hogar.
+Aplicación web para comprar articulos de decoración.
 
 ### Autores
 
