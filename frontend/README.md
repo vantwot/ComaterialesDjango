@@ -1,4 +1,4 @@
-# frontend
+# bank_fe
 
 ## Project setup
 ```
