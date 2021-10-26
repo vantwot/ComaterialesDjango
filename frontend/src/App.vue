@@ -34,6 +34,10 @@
           </li>
           <li><a href="/">Nosotros</a></li>
           <li><a href="/">Contactanos</a></li>
+          <form>
+            <input class="un1" type="text" />
+            <button class="icone lupa" type="submit"/>
+          </form>
         </div>
       </ul>
     </nav>
@@ -242,5 +246,88 @@ li {
 }
 .services:hover .dropdown {
   display: block;
+}
+
+.box {
+  margin: 100px auto;
+  width: 300px;
+  height: 50px;
+}
+
+.barrabusqueda {
+  padding: 10 40px 10 25px;
+  position: center;
+  margin: 0 auto;
+  padding-top: 6px;
+  height: 600px;
+  align-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+.formulariodebarra {
+  width: 200px;
+  height: 50px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.formulariodebarra {
+  overflow: hidden;
+  position: relative;
+}
+
+.submit1 {
+  border-radius: 5em;
+  color: #fff;
+  background: #3f5237;
+  border: 0;
+  padding: 10px 20px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+.un1 {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+}
+
+.icone.lupa {
+  width: 40px;
+  height: 40px;
+  border: 5px solid black;
+  border-radius: 40%;
+  position: relative;
+}
+
+.icone.lupa:after {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  background-color: black;
+  display: block;
+  content: "";
+  top: 20%;
+  left: 20%;
+  transform: rotate(45deg);
+  transform-origin: -10px 40px;
 }
 </style>
