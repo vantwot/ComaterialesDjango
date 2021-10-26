@@ -33,7 +33,7 @@
             </ul>
           </li>
           <li><a href="/">Nosotros</a></li>
-          <li><a href="/">Contactanos</a></li>
+          <li><a v-if="is_auth" v-on:click="loadContacto">Contactanos</a></li>
           <form>
             <input class="un1" type="text" />
             <button class="icone lupa" type="submit"/>
@@ -52,9 +52,6 @@
     </div>
   </div>
 </template>
-
-
-
 
 <script>
 export default {
@@ -82,6 +79,10 @@ export default {
 
     loadSignUp: function () {
       this.$router.push({ name: "signUp" });
+    },
+
+    loadContacto: function () {
+      this.$router.push({name: "contacto"})
     },
 
     completedLogIn: function (data) {
@@ -118,11 +119,6 @@ export default {
   },
 };
 </script>
-
-
-
-
-
 
 <style>
 body {
