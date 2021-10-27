@@ -17,8 +17,8 @@
               <li>
                 <a v-if="!is_auth" v-on:click="loadSignUp"> Registrarse</a>
               </li>
-              <li><a v-if="is_auth" v-on:click="loadHome"> Inicio</a></li>
-              <li><a v-if="is_auth" v-on:click="logOut"> Cerrar sesión</a></li>
+              <li><a  v-on:click="loadHome"> Inicio</a></li>
+              <li><a  v-on:click="logOut"> Cerrar sesión</a></li>
             </ul>
           </li>
           <li class="services">
@@ -34,10 +34,6 @@
           </li>
           <li><a v-if="is_auth" v-on:click="loadCarrito">Carrito</a></li>
           <li><a v-if="is_auth" v-on:click="loadContacto">Contactanos</a></li>
-          <form>
-            <input class="un1" type="text" />
-            <button class="icone lupa" type="submit"/>
-          </form>
         </div>
       </ul>
     </nav>

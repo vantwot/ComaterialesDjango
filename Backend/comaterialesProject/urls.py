@@ -22,7 +22,7 @@ from comaterialesApp.views.userCreateView import UserCreateView
 from comaterialesApp.views.productCreateView import productos
 from comaterialesApp.views.categoriaView import categorias
 from comaterialesApp.views.familiasView import familias
-
+from comaterialesApp.views.productCreateView import productoDetailView
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
@@ -34,5 +34,5 @@ urlpatterns = [
     path('productos/', views.productos.as_view()),
     path('categorias/', views.categorias.as_view()),
     path('familia/', views.familias.as_view()),
-
+    path('productos/<int:pk>/', views.productoDetailView.as_view()), # G
 ]

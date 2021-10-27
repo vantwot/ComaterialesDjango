@@ -1,40 +1,56 @@
 <template>
-  <div>
-    <h1>A mimir</h1>
-    <h1>{{productos.precio}}</h1>
+  <div class="menu1">
+    <div v-for="producto in productos" :key="producto.id" class="box1">
+      <div>
+        <figure class="image">
+          <img src="../assets/logo.png" />
+        </figure>
+        <div id="nombre">
+          <h3>Nombre : {{ producto.nombre }}</h3>
+        </div>
+        <div id="especialidad">
+          <h3>fabricante: {{ producto.fabricante }}</h3>
+        </div>
+        <div id="calificacion">
+          <h3>Precio : {{ producto.precio }}</h3>
+        </div>
+          <div id="router">
+            <router-link class="router"  v-bind:to="producto.ruta_absoluta">View details
+            </router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "producto",
+  name: "productos",
 
   data: function () {
     return {
-      productos: {},
-      id_producto:"",
+      productos: [],
     };
   },
   methods: {
-    async getProducto() {
-      //const producto = this.$route.params.producto;
-      this.id_producto = this.$route.params.id_producto;
-      await axios
-        .get(`https://comateriales-be.herokuapp.com/productos/${this.id_producto}/`)
+    getData: function () {
+      axios
+        .get("https://comateriales-be.herokuapp.com/productos/", {
+          headers: {},
+        })
         .then((result) => {
-          this.productos = result.data[0];
-          console.log(this.productos);
-          
+          this.productos = result.data;
         })
         .catch((error) => {
-          console.log(error);
+          alert("error al cargar la data");
         });
     },
   },
-    created:  function() {
-      this.getProducto() 
-  }
+
+  created: function () {
+    this.getData();
+  },
 };
 </script>
 
@@ -115,7 +131,7 @@ export default {
 }
 .router {
   text-decoration: none;
-  color: white;
+  color: rgb(153, 13, 13);
   background-color: #283747;
   padding: 0 3%;
   border-radius: 5px;
@@ -129,3 +145,4 @@ export default {
   padding: 0 3%;
 }
 </style>
+
