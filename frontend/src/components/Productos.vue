@@ -9,12 +9,14 @@
           <h3>Nombre : {{ producto.nombre }}</h3>
         </div>
         <div id="especialidad">
-          <h3>Especialidad: {{ producto.fabricante }}</h3>
+          <h3>fabricante: {{ producto.fabricante }}</h3>
         </div>
         <div id="calificacion">
-          <h3>calificacion : {{ producto.precio }}</h3>
+          <h3>Precio : {{ producto.precio }}</h3>
         </div>
-        <div id="router"></div>
+        <!--<router-link class="router" v-bind:to="producto.ruta"
+          >Ver detalles
+        </router-link>-->
       </div>
     </div>
   </div>
@@ -31,22 +33,23 @@ export default {
     };
   },
   methods: {
-    async getProducto() {
-      const nombre = this.$route.params.nombre;
-      this.id_producto = this.$route.params.id;
-      await axios
-        .get(`http://localhost:8000/productos/${this.id_producto}/`)
+    getData: function () {
+      axios
+        .get("https://comateriales-be.herokuapp.com/productos/", {
+          headers: {},
+        })
         .then((result) => {
-          this.producto = result.data;
+          this.productos = result.data;
         })
         .catch((error) => {
-          console.log(error);
+          alert("error al cargar la data");
         });
     },
   },
-    created:  function() {
-      this.getProducto() 
-  }
+
+  created: function () {
+    this.getData();
+  },
 };
 </script>
 
@@ -141,3 +144,4 @@ export default {
   padding: 0 3%;
 }
 </style>
+

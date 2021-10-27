@@ -5,6 +5,7 @@ import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
 import Contacto from './components/Contacto.vue'
 import Carrito from './components/Carrito.vue'
+import Productos from './components/Productos.vue'
 import Producto from './components/Producto.vue'
 
 
@@ -41,6 +42,11 @@ const routes = [{
     {
         path: '/productos',
         name: "productos",
+        component: Productos
+    },
+    {
+        path: '/producto/:id',
+        name : "producto",
         component: Producto
     }
 ];
