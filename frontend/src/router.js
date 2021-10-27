@@ -45,11 +45,7 @@ const routes = [{
         component: Productos
     },
     {
-<<<<<<< HEAD
         path: '/:producto/:id_producto/',
-=======
-        path: '/producto/:id',
->>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
         name : "producto",
         component: Producto
     }
