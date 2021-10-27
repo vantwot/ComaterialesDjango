@@ -7,15 +7,17 @@ from rest_framework_simplejwt.backends import TokenBackend # para validacion de 
 from comaterialesApp.serializers.productoSerializer import ProductoSerializer
 from comaterialesApp.models.producto import Producto
 
-
-
 class productos(views.APIView):
     def get(self, request, format=None):
         productos = Producto.objects.all()
         serializer = ProductoSerializer(productos, many=True)
         return Response(serializer.data)
 
+<<<<<<< HEAD
 class productoDetailView(generics.ListAPIView): # retrieve es para traer la informacion
+=======
+class detalleProductos(generics.ListAPIView): 
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
     serializer_class = ProductoSerializer
     def get_queryset(self):     
         queryset = Producto.objects.filter(id = self.kwargs['pk'])

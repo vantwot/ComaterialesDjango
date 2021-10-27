@@ -1,23 +1,53 @@
 <template>
+<<<<<<< HEAD
   <div>
     <h1>A mimir</h1>
     <h1>{{productos.precio}}</h1>
+=======
+  <div class="menu1">
+    <div v-for="producto in productos" :key="producto.id" class="box1">
+      <div>
+        <figure class="image">
+          <img src="../assets/logo.png" />
+        </figure>
+        <div id="nombre">
+          <h3>Nombre : {{ producto.nombre }}</h3>
+        </div>
+        <div id="especialidad">
+          <h3>Especialidad: {{ producto.fabricante }}</h3>
+        </div>
+        <div id="calificacion">
+          <h3>calificacion : {{ producto.precio }}</h3>
+        </div>
+        <div id="router"></div>
+      </div>
+    </div>
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
+<<<<<<< HEAD
   name: "producto",
 
   data: function () {
     return {
       productos: {},
       id_producto:"",
+=======
+  name: "productos",
+
+  data: function () {
+    return {
+      productos: [],
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
     };
   },
   methods: {
     async getProducto() {
+<<<<<<< HEAD
       //const producto = this.$route.params.producto;
       this.id_producto = this.$route.params.id_producto;
       await axios
@@ -26,6 +56,14 @@ export default {
           this.productos = result.data[0];
           console.log(this.productos);
           
+=======
+      const nombre = this.$route.params.nombre;
+      this.id_producto = this.$route.params.id;
+      await axios
+        .get(`http://localhost:8000/productos/${this.id_producto}/`)
+        .then((result) => {
+          this.producto = result.data;
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
         })
         .catch((error) => {
           console.log(error);

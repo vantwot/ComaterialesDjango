@@ -14,10 +14,16 @@
         <div id="calificacion">
           <h3>Precio : {{ producto.precio }}</h3>
         </div>
+<<<<<<< HEAD
           <div id="router">
             <router-link class="router"  v-bind:to="producto.ruta_absoluta">View details
             </router-link>
         </div>
+=======
+        <!--<router-link class="router" v-bind:to="producto.ruta"
+          >Ver detalles
+        </router-link>-->
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
       </div>
     </div>
   </div>
@@ -131,7 +137,11 @@ export default {
 }
 .router {
   text-decoration: none;
+<<<<<<< HEAD
   color: rgb(153, 13, 13);
+=======
+  color: white;
+>>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
   background-color: #283747;
   padding: 0 3%;
   border-radius: 5px;
