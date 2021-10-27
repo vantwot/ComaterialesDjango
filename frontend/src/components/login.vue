@@ -1,109 +1,173 @@
 <template>
-    <div class="logIn_user">
-        <div class="container_logIn_user">
-            <h2> Iniciar Sesión </h2>
-            <form v-on:submit.prevent="processLogInUser"> <!-- PARA CUANDO SE DE ENVIAR AL FORMULACIO-->
-                <input type="text" placeholder="username" v-model="user.username"> <!--esto es una entrada de texto, se puede cambiar para que sea boton o otra cosa, es una entrada-->
-                <!--Placeholder, es un texto que se va a borrar al momento del usuario empezar a escribir en el campo.  v-model es basicamente una ayuda para hacer el objeto Javascript, lo que enviaremos en la peticion -->
-                <br/> <!--SALTO DE LINEA-->
-                <input type="password" placeholder="password" v-model="user.password">
-                <br/>
-                <button type="submit"> Iniciar sesión </button> 
-            </form>
-        </div>
+  <body>
+    <div class="main1">
+      <p class="sign" align="center">Inicia sesión</p>
+      <form v-on:submit.prevent="processLogInUser">
+        <input
+          class="un"
+          type="text"
+          placeholder="Usuario"
+          v-model="user.username"
+        />
+        <input
+          class="pass"
+          type="password"
+          placeholder="Contraseña"
+          v-model="user.password"
+        />
+        <button class="submit" align="center">Entrar</button>
+      </form>
     </div>
+  </body>
 </template>
 
-
 <script>
-    import axios from 'axios';
-    export default {
-        name:'logIn',
-        data:function(){
-            return {
-                user:{
-                    username:"",
-                    password:""
-                }
-            }
-        },
+import axios from "axios";
+export default {
+  name: "logIn",
+  data: function () {
+    return {
+      user: {
+        username: "",
+        password: "",
+      },
+    };
+  },
 
-        methods:{
-            // necesitamos 3 cosas para el axios 
-            processLogInUser: function(){ 
-                axios.post( // definir el metodo
-                    'https://comateriales-be.herokuapp.com/login/', // endpoint al cual se envia
-                    this.user, // la data o el Json que se envia
-                    {HEADERS:{}} // LOS HEADERS ESTAN VACIOS
-                )
-                .then((result) => {// Esto se agrega para, al invocar la configuracion de endpoint, se va a ejecutar una serie de acciones, que son las que se colocan aca en el .then()
-                    let dataLogin = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh:result.data.refresh
-                    }
-                
-                    this.$emit('completedLogIn',dataLogin ) // emit es la forma en la que yo le voy a enviar informacion a la capa que está arriba (padre)
-                })
-                .catch((error) => {
-                    if(error.response.status=="401"){alert("Las credenciales son incorrectas.")}
-                })
-            }
-        },
+  methods: {
+    // necesitamos 3 cosas para el axios
+    processLogInUser: function () {
+      axios.post(
+          // definir el metodo
+          "https://comateriales-be.herokuapp.com/login/", // endpoint al cual se envia
+          this.user, // la data o el Json que se envia
+          { HEADERS: {} } // LOS HEADERS ESTAN VACIOS
+        )
+        .then((result) => {
+          // Esto se agrega para, al invocar la configuracion de endpoint, se va a ejecutar una serie de acciones, que son las que se colocan aca en el .then()
+          let dataLogin = {
+            username: this.user.username,
+            token_access: result.data.access,
+            token_refresh: result.data.refresh,
+          };
 
-
-    }
-
+          this.$emit("completedLogIn", dataLogin); // emit es la forma en la que yo le voy a enviar informacion a la capa que está arriba (padre)
+        })
+        .catch((error) => {
+          if (error.response.status == "401") {
+            alert("Las credenciales son incorrectas.");
+          }
+        });
+    },
+  },
+};
 </script>
 
 <style>
-    .logIn_user{
-        margin: 0;
-        padding: 0%;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh;
+body {
+    background-color: #FFFFFF;
+    font-family: 'Ubuntu', sans-serif;
+}
+    
+    .main1 {
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 300px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     }
-    .container_logIn_user {
-        border: 3px solid #283747;
-        border-radius: 10px;
-        width: 25%;
-        height: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    
+    .sign {
+        padding-top: 40px;
+        color: #3f5237;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
     }
-    .logIn_user h2{
-        color: #283747;
+    
+    .un {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
     }
-    .logIn_user form{
-        width: 70%;
+    
+    form.form1 {
+        padding-top: 40px;
     }
-    .logIn_user input{
-        height: 40px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 20px;
-        margin: 5px 0;
-        border: 1px solid #283747;
+    
+    .pass {
+            width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
     }
-    .logIn_user button{
-        width: 100%;
-        height: 40px;
-        color: #E5E7E9;
-        background: #283747;
-        border: 1px solid #E5E7E9;
-        border-radius: 5px;
-        padding: 10px 25px;
-        margin: 5px 0;
+    
+   
+    .un:focus, .pass:focus {
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+        
     }
-    .logIn_user button:hover{
-        color: #E5E7E9;
-        background: crimson;
-        border: 1px solid #283747;
+    
+    .submit {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background:#3f5237;
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     }
+    
+    .forgot {
+        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+        color: #E1BEE7;
+        padding-top: 15px;
+    }
+    
+    a {
+        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+        color: #E1BEE7;
+        text-decoration: none
+    }
+    
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+    }
+        
 </style>
