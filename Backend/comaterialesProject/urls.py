@@ -23,6 +23,8 @@ from comaterialesApp.views.productCreateView import productos
 from comaterialesApp.views.categoriaView import categorias
 from comaterialesApp.views.familiasView import familias
 from comaterialesApp.views.productCreateView import productoDetailView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
@@ -35,4 +37,4 @@ urlpatterns = [
     path('categorias/', views.categorias.as_view()),
     path('familia/', views.familias.as_view()),
     path('productos/<int:pk>/', views.productoDetailView.as_view()),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

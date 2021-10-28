@@ -1,7 +1,11 @@
 <template>
   <div>
+    <div>
+      <figure class="image">
+          <img v-bind:src="productos.image"  >
+        </figure>
+    </div>
     <h1>A mimir</h1>
-    <h1>{{productos.precio}}</h1>
   </div>
 </template>
 
@@ -25,7 +29,7 @@ export default {
         .then((result) => {
           this.productos = result.data[0];
           console.log(this.productos);
-          
+
         })
         .catch((error) => {
           console.log(error);
@@ -37,7 +41,7 @@ export default {
   }
 };
 </script>
-
+:
 <style>
 .box img {
   border-radius: 30px;
@@ -127,5 +131,15 @@ export default {
   border-radius: 5px;
   text-align: center;
   padding: 0 3%;
+}
+
+.box img {
+  border-radius: 30px;
+  width: 3.8vw;
+  height: 4vw;
+  margin: 0.2vw 0 0 1.3vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 </style>
