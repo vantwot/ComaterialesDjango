@@ -21,3 +21,9 @@ class Producto(models.Model):
         ('Vitra', 'vitra')
     ))
     precio=models.IntegerField(null=False)
+    image = models.ImageField(upload_to='descargas/', blank=True, null=True)
+
+    def get_image(self):
+        if self.image:
+            return 'http://127.0.0.1:8000' + self.image.url
+        return ''

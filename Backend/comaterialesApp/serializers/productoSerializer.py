@@ -6,7 +6,7 @@ from comaterialesApp.models.categoria import Categoria
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['id', 'nombre', 'categoria', 'fabricante', 'marca', 'precio']
+        fields = ['id', 'nombre', 'categoria', 'fabricante', 'marca', 'precio', 'image']
 
     def to_representation(self, obj):
         producto = Producto.objects.get(id=obj.id)
@@ -19,10 +19,8 @@ class ProductoSerializer(serializers.ModelSerializer):
             'fabricante': producto.fabricante,
             'marca': producto.marca,
             'precio': producto.precio,
-<<<<<<< HEAD
-            'ruta_absoluta': ruta_ab
-=======
->>>>>>> 7aa28de52e45f2f8918244c2ff4dc0e16a9246d3
+            'ruta_absoluta': ruta_ab,
+            'image' : producto.image
         }
 
         
