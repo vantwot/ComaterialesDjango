@@ -2,20 +2,17 @@
   <div class="menu1">
     <div v-for="producto in productos" :key="producto.id" class="box1">
       <div>
-        <figure class="image">
-          <img src="../assets/logo.png" />
+        <figure>
+          <img v-bind:src="producto.image" />
         </figure>
         <div id="nombre">
           <h3>Nombre : {{ producto.nombre }}</h3>
-        </div>
-        <div id="especialidad">
-          <h3>fabricante: {{ producto.fabricante }}</h3>
         </div>
         <div id="calificacion">
           <h3>Precio : {{ producto.precio }}</h3>
         </div>
           <div id="router">
-            <router-link class="router"  v-bind:to="producto.ruta_absoluta">View details
+            <router-link class="router"  v-bind:to="producto.ruta_absoluta">Ver detalles
             </router-link>
         </div>
       </div>
@@ -128,11 +125,11 @@ export default {
   font: oblique bold 120% cursive;
   font-weight: normal;
   padding: 40px 0px;
+  margin-left: 90px;
 }
 .router {
   text-decoration: none;
-  color: rgb(153, 13, 13);
-  background-color: #283747;
+  background-color:#303b2b;
   padding: 0 3%;
   border-radius: 5px;
   box-shadow: -1px 3px 10px rgb(116, 116, 116);
